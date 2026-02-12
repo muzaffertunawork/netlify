@@ -7,7 +7,7 @@ export function Hero() {
     <section 
       className="relative h-screen w-full overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: 'url(/images/hero-bg.jpg)',
+        backgroundImage: 'url(/hero-bg.jpg)',
       }}
     >
       {/* Dark overlay for text readability */}
