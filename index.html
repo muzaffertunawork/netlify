@@ -18,31 +18,56 @@
         }
         
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 2rem;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('background.webp') center center / cover no-repeat;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(102, 126, 234, 0.85) 0%,
+                rgba(118, 75, 162, 0.85) 100%
+            );
+            z-index: 1;
         }
         
         .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
+            color: white;
         }
         
         h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             animation: fadeInUp 0.8s ease-out;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
         p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.95;
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
         }
         
         .cta-button {
@@ -53,13 +78,13 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         @keyframes fadeInUp {
