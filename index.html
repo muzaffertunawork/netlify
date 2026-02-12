@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VÖRDE — Mimarlık & İç Mekan Tasarım</title>
+    <title>VORDE — Mimarlık & İç Mekan Tasarım</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Gilda+Display&family=Cormorant:wght@300;400&display=swap" rel="stylesheet">
@@ -38,11 +38,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 2rem 5%;
-            background: rgba(10, 10, 10, 0.3);
-            backdrop-filter: blur(30px) saturate(120%);
-            -webkit-backdrop-filter: blur(30px) saturate(120%);
-            border-bottom: 1px solid rgba(245, 241, 232, 0.05);
+            padding: 2.5rem 5%;
             animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
@@ -80,15 +76,16 @@
         
         .nav-link {
             font-family: 'Cinzel', serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--text-primary);
             text-decoration: none;
             position: relative;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0.85;
-            font-weight: 400;
+            font-weight: 500;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8),
+                         0 0 20px rgba(0, 0, 0, 0.6);
         }
         
         .nav-link::after {
@@ -104,8 +101,8 @@
         }
         
         .nav-link:hover {
-            opacity: 1;
             color: var(--accent);
+            transform: translateY(-2px);
         }
         
         .nav-link:hover::after {
@@ -114,7 +111,7 @@
         
         .logo {
             font-family: 'Gilda Display', serif;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 400;
             letter-spacing: 0.15em;
             color: var(--text-primary);
@@ -122,6 +119,8 @@
             transition: all 0.4s ease;
             text-align: center;
             line-height: 1;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9),
+                         0 0 30px rgba(0, 0, 0, 0.7);
         }
         
         .logo:hover {
@@ -174,152 +173,6 @@
             z-index: 2;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            padding: 0 5%;
-            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .hero-subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.8s both;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        .hero-title {
-            font-family: 'Gilda Display', serif;
-            font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: 400;
-            line-height: 1.1;
-            letter-spacing: 0.08em;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-        }
-        
-        .hero-description {
-            font-family: 'Cormorant', serif;
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            font-weight: 300;
-            line-height: 1.8;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            color: var(--text-secondary);
-            opacity: 0;
-            animation: fadeIn 1s ease 1s both;
-        }
-        
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.5s both;
-        }
-        
-        .scroll-text {
-            font-family: 'Cinzel', serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-        }
-        
-        .scroll-line {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(
-                to bottom,
-                var(--accent),
-                transparent
-            );
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes scrollPulse {
-            0%, 100% {
-                opacity: 0.3;
-                transform: scaleY(1);
-            }
-            50% {
-                opacity: 1;
-                transform: scaleY(1.2);
-            }
-        }
-        
-        /* Tagline Section */
-        .tagline-section {
-            position: absolute;
-            bottom: 5rem;
-            left: 5%;
-            z-index: 3;
-            max-width: 500px;
-            opacity: 0;
-            animation: fadeInLeft 1s ease 1.2s both;
-        }
-        
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .tagline-location {
-            font-family: 'Cinzel', serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            margin-bottom: 0.8rem;
-            opacity: 0.9;
-        }
-        
-        .tagline-text {
-            font-family: 'Cormorant', serif;
-            font-size: 1.1rem;
-            font-weight: 300;
-            font-style: italic;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
-        
         /* Responsive Design */
         @media (max-width: 1200px) {
             .nav-container {
@@ -357,12 +210,6 @@
                 font-size: 2.5rem;
                 order: -1;
             }
-            
-            .tagline-section {
-                left: 4%;
-                right: 4%;
-                bottom: 3rem;
-            }
         }
         
         @media (max-width: 600px) {
@@ -384,17 +231,8 @@
                 font-size: 2rem;
             }
             
-            .hero-subtitle {
-                font-size: 0.65rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .scroll-indicator {
-                bottom: 2rem;
-            }
-            
-            .tagline-section {
-                display: none;
+            .nav-link {
+                font-size: 0.68rem;
             }
         }
         
@@ -412,7 +250,7 @@
                 <a href="#projects" class="nav-link">Projeler</a>
                 <a href="#about" class="nav-link">Hakkımızda</a>
             </div>
-            <a href="#home" class="logo">VÖRDE</a>
+            <a href="#home" class="logo">VORDE</a>
             <div class="nav-right">
                 <a href="#contact" class="nav-link">İletişim</a>
                 <a href="#blog" class="nav-link">Blog</a>
@@ -426,27 +264,6 @@
             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&q=80" alt="Modern Architecture Interior">
         </div>
         <div class="hero-overlay"></div>
-        
-        <div class="hero-content">
-            <div class="hero-subtitle">Mimarlık & İç Mekan Tasarım</div>
-            <h1 class="hero-title">VÖRDE</h1>
-            <p class="hero-description">
-                Mekanın ruhunu keşfeden, zamanın ötesinde tasarımlar yaratıyoruz.
-                Her proje, minimalist bir şiir gibi konuşur.
-            </p>
-        </div>
-        
-        <div class="tagline-section">
-            <div class="tagline-location">Vurgu — Oran — Ritim — Denge</div>
-            <div class="tagline-text">
-                Vörde is an architecture and interior design studio based in Bornova, İzmir
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <span class="scroll-text">Keşfet</span>
-            <div class="scroll-line"></div>
-        </div>
     </section>
 </body>
 </html>
