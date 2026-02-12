@@ -1,21 +1,15 @@
 "use client"
 
-import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Background image */}
-      <Image
-        src="/images/hero-bg.jpg"
-        alt="Modern architectural interior with circular sunken lounge and fire pit"
-        fill
-        className="object-cover"
-        priority
-        quality={90}
-      />
-
+    <section 
+      className="relative h-screen w-full overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: 'url(/images/hero-bg.jpg)',
+      }}
+    >
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/30" />
 
