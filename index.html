@@ -6,7 +6,8 @@
     <title>VORDE — Mimarlık & İç Mekan Tasarım</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Gilda+Display&family=Cormorant:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-bg: #0a0a0a;
@@ -14,6 +15,10 @@
             --text-secondary: #b8b4a8;
             --accent: #d4c5a9;
             --overlay: rgba(10, 10, 10, 0.75);
+            
+            /* Font Tanımlamaları */
+            --font-logo: "Segoe UI", "Sego", sans-serif; /* Sego için sistem fontu ve fallback */
+            --font-nav: "Arsenica", "Bodoni Moda", serif; /* Arsenica için yüksek kaliteli serif alternatif */
         }
         
         * {
@@ -23,15 +28,12 @@
         }
         
         body {
-            font-family: 'Cormorant', serif;
             background: var(--primary-bg);
             color: var(--text-primary);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Header Navigation */
         .header {
             position: fixed;
             top: 0;
@@ -43,14 +45,8 @@
         }
         
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         
         .nav-container {
@@ -62,70 +58,52 @@
             gap: 3rem;
         }
         
-        .nav-left {
+        .nav-left, .nav-right {
             display: flex;
             gap: 3.5rem;
-            justify-content: flex-start;
         }
         
-        .nav-right {
-            display: flex;
-            gap: 3.5rem;
-            justify-content: flex-end;
-        }
+        .nav-left { justify-content: flex-start; }
+        .nav-right { justify-content: flex-end; }
         
+        /* 4'lü Menü - Arsenica Fontu */
         .nav-link {
-            font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
+            font-family: var(--font-nav);
+            font-size: 0.9rem; /* Serif fontlar için biraz büyütüldü */
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-primary);
             text-decoration: none;
             position: relative;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 500;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8),
-                         0 0 20px rgba(0, 0, 0, 0.6);
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(-50%);
+            font-weight: 400;
+            font-style: italic; /* Arsenica tarzı seriflerde italik şık durur */
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
         
         .nav-link:hover {
             color: var(--accent);
-            transform: translateY(-2px);
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .logo {
-            font-family: 'Gilda Display', serif;
-            font-size: 3.5rem;
-            font-weight: 400;
             letter-spacing: 0.15em;
+        }
+        
+        /* Ortadaki Logo - Sego Fontu */
+        .logo {
+            font-family: var(--font-logo);
+            font-size: 3rem;
+            font-weight: 300; /* Sego/Segoe UI için daha modern bir hafiflik */
+            letter-spacing: 0.2em;
             color: var(--text-primary);
             text-decoration: none;
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
             text-align: center;
             line-height: 1;
-            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9),
-                         0 0 30px rgba(0, 0, 0, 0.7);
+            text-transform: uppercase;
         }
         
         .logo:hover {
-            letter-spacing: 0.2em;
             color: var(--accent);
+            letter-spacing: 0.3em;
+            opacity: 0.8;
         }
         
         /* Hero Section */
@@ -149,101 +127,24 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.35) contrast(1.15);
+            filter: brightness(0.4);
             animation: slowZoom 20s ease-out forwards;
         }
         
         @keyframes slowZoom {
-            from {
-                transform: scale(1.1);
-            }
-            to {
-                transform: scale(1);
-            }
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
         }
-        
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(10, 10, 10, 0.2) 0%,
-                rgba(10, 10, 10, 0.7) 100%
-            );
-            z-index: 2;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .nav-container {
-                gap: 2rem;
-            }
-            
-            .nav-left,
-            .nav-right {
-                gap: 2.5rem;
-            }
-            
-            .logo {
-                font-size: 2.8rem;
-            }
-        }
-        
+
+        /* Mobil Düzenlemeler */
         @media (max-width: 900px) {
-            .header {
-                padding: 1.5rem 4%;
-            }
-            
-            .nav-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                text-align: center;
-            }
-            
-            .nav-left,
-            .nav-right {
-                justify-content: center;
-                gap: 2rem;
-            }
-            
-            .logo {
-                font-size: 2.5rem;
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .header {
-                padding: 1.2rem 4%;
-            }
-            
-            .nav-link {
-                font-size: 0.65rem;
-                letter-spacing: 0.2em;
-            }
-            
-            .nav-left,
-            .nav-right {
-                gap: 1.5rem;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .nav-link {
-                font-size: 0.68rem;
-            }
-        }
-        
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
+            .nav-container { grid-template-columns: 1fr; gap: 1.5rem; }
+            .logo { order: -1; font-size: 2.2rem; }
+            .nav-left, .nav-right { justify-content: center; gap: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
     <header class="header">
         <nav class="nav-container">
             <div class="nav-left">
@@ -258,12 +159,10 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&q=80" alt="Modern Architecture Interior">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&q=80" alt="Mimari Tasarım">
         </div>
-        <div class="hero-overlay"></div>
     </section>
 </body>
 </html>
